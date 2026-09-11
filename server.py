@@ -1,5 +1,6 @@
 from fastmcp import FastMCP
 from agent import app
+import os
 
 mcp = FastMCP("AutoML Agent")
 
@@ -41,4 +42,5 @@ def analyse_dataset(csv_content: str, goal: str) -> str:
     """
 
 if __name__ == "__main__":
+    port = int(os.environ.get("PORT", 8000))
     mcp.run(transport="streamable-http", host="0.0.0.0", port=8000)
