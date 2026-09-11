@@ -6,10 +6,8 @@ import base64
 from PIL import Image
 import io
 
-#SERVER_URL = "  https://snowy-audibly-germinate.ngrok-free.dev/mcp/"
-
 async def run_analysis(csv_content: str, goal: str):
-    transport = StreamableHttpTransport("https://snowy-audibly-germinate.ngrok-free.dev/mcp")
+    transport = StreamableHttpTransport("https://web-production-3340c.up.railway.app/mcp")
     async with Client(transport) as client:
         result = await client.call_tool("analyse_dataset", {
             "csv_content": csv_content,
