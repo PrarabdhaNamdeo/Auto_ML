@@ -1,0 +1,29 @@
+[project]
+name = "auto-ml"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "Prarabdha", email = "prarabdha910@gmail.com" }
+]
+requires-python = ">=3.13"
+dependencies = [
+    "fastmcp>=4.0.3",
+    "langchain>=1.4.0",
+    "langchain-groq>=1.1.3",
+    "langgraph>=1.2.11",
+    "matplotlib>=3.11.1",
+    "numpy>=2.5.3",
+    "pandas>=3.0.5",
+    "python-dotenv>=1.2.3",
+    "scikit-learn>=1.9.1",
+    "shap>=0.52.0",
+    "streamlit>=1.63.0",
+]
+
+[project.scripts]
+auto-ml = "auto_ml:main"
+
+[build-system]
+requires = ["uv_build>=0.12.7,<0.13.0"]
+build-backend = "uv_build"
