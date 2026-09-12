@@ -15,7 +15,7 @@ async def run_analysis(csv_content: str, goal: str):
         })
         return result
 
-# Session state initialization
+# Session state
 if "report" not in st.session_state:
     st.session_state["report"] = ""
 if "stage" not in st.session_state:
@@ -46,20 +46,20 @@ if st.session_state["stage"] == "results":
         full_report = parts[1].split("Full Report:")[1] if "Full Report:" in parts[1] else ""
         plot_base64 = parts[1].split("SHAP Summary:")[0].strip()
 
-        # Show model results
+        # results
         st.markdown(before_plot)
         
-        # Show SHAP plot
+        # SHAP plot
         image_data = base64.b64decode(plot_base64)
         image = Image.open(io.BytesIO(image_data))
         st.subheader("SHAP Feature Importance Plot")
         st.image(image)
 
-        # Show SHAP summary
+       
         st.subheader("SHAP Summary")
         st.markdown(shap_summary)
 
-        # Show full report
+        # full report
         st.subheader("Full Analysis Report")
         st.markdown(full_report)
 
